@@ -1,6 +1,10 @@
 <template>
 
   <div>
+    <div>
+      <button @click="toggleWeekends">toggle weekends</button>
+      <FullCalendar :options="calendarOptions" />
+    </div>
     <Tutorial/>
   </div>
 </template>
@@ -13,7 +17,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 
 
 export default {
-  name: 'IndexPage',
+  name: 'calender',
   components: {
     FullCalendar // make the <FullCalendar> tag available
   },
@@ -22,7 +26,7 @@ export default {
       calendarOptions: {
         plugins: [ dayGridPlugin, interactionPlugin ],
         initialView: 'dayGridMonth',
-        weekends: false // initial value
+        weekends: true // initial value
       }
     }
   },
