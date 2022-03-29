@@ -1,145 +1,54 @@
 <template>
+<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+    <div class="mb-4">
+        <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
+        メールアドレス
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="username" type="text" placeholder="Username">
+    </div>
+    <div class="mb-6">
+        <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+        パスワード
+        </label>
+        <input class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="password" type="password" placeholder="******************">
+    </div>
+    <div class="flex items-center justify-between">
+        <button class="bg-blue hover:bg-blue-dark font-bold py-2 px-4 rounded" type="button" @click="loginWithAuthModule()">
+        ログイン
+        </button>
+        <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
+        パスワードを忘れた場合
+        </a>
+</div>
 
-    
-   <div class='demo-app-main'>
-      <FullCalendar
-        class='demo-app-calendar'
-        :options='calendarOptions'
-      >
-        <template v-slot:eventContent='arg'>
-          <b>{{ arg.timeText }}</b>
-          <i>{{ arg.event.title }}</i>
-        </template>
-    </FullCalendar>
-  </div>
-
+</div>
 
 </template>
 
 <script>
-import '@fullcalendar/core/vdom' // solves problem with Vite
-import FullCalendar from '@fullcalendar/vue'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import interactionPlugin from '@fullcalendar/interaction'
-import { formatDate } from '@fullcalendar/vue';
-
-
-
 export default {
-  name: 'calender',
-  components: {
-    FullCalendar // make the <FullCalendar> tag available
-  },
-
-  data(context) {
-    let _event_list = context.$store.state.event_list.data;
+  data () {
     return {
-      event_list: _event_list,
-      calendarOptions: {
-        locale: 'ja',
-        timeZone: 'Asia/Tokyo',
-        buttonIcons: false,
-        eventTimeFormat: { hour: 'numeric', minute: '2-digit' },
-        defaultView: 'listMonth',
-        plugins: [
-          dayGridPlugin,
-          timeGridPlugin,
-          interactionPlugin // needed for dateClick
-        ],
-        headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        },
-        initialView: 'dayGridMonth',
-        initialEvents: _event_list, // alternatively, use the `events` setting to fetch from a feed
-        editable: true,
-        selectable: true,
-        selectMirror: true,
-        dayMaxEvents: true,
-        weekends: true,
-
-
-        // select: this.handleDateSelect,
-        eventClick: this.handleEventClick,
-        // eventsSet: this.handleEvents,
-
-        eventRender: function(info) {
-          // info.el.onclick=function(){
-          //   // alert(info.event.id + ":" + info.event.extendedProps.status);
-          // };
-        }
-      }
+      email: '',
+      password: '',
     }
   },
-
   methods: {
-    
-    handleWeekendsToggle() {
-      this.calendarOptions.weekends = !this.calendarOptions.weekends // update a property
-    },
-    handleDateSelect(selectInfo) {
-      let title = prompt('新しくイベント入力')
-      let calendarApi = selectInfo.view.calendar
-      calendarApi.unselect() // clear date selection
-      if (title) {
-        calendarApi.addEvent({
-          id: createEventId(),
-          title,
-          start: selectInfo.startStr,
-          end: selectInfo.endStr,
-          allDay: selectInfo.allDay
-        })
-      }
-    },
-    handleEventClick(clickInfo) {
-      this.$router.push({ path: `detail/${clickInfo.event.id}` })
-    },
-    handleEvents(events) {
-      this.currentEvents = events
-    },
+    async loginWithAuthModule () {
+      await this.$auth.loginWith('local', {
+        data: {
+          email: this.email,
+          password: this.password
+        }
+      })
+      .then((response) => {
+        return response
+      },
+      (error) => {
+        return error
+      })
+    }
   }
 }
 </script>
 
-<style lang='css' scoped>
-h2 {
-  margin: 0;
-  font-size: 16px;
-}
-ul {
-  margin: 0;
-  padding: 0 0 0 1.5em;
-}
-li {
-  margin: 1.5em 0;
-  padding: 0;
-}
-b { /* used for event dates/times */
-  margin-right: 3px;
-}
-.demo-app {
-  display: flex;
-  min-height: 100%;
-  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-  font-size: 14px;
-}
-.demo-app-sidebar {
-  width: 300px;
-  line-height: 1.5;
-  background: #eaf9ff;
-  border-right: 1px solid #d3e2e8;
-}
-.demo-app-sidebar-section {
-  padding: 2em;
-}
-.demo-app-main {
-  flex-grow: 1;
-  padding: 3em;
-}
-.fc { /* the calendar root */
-  max-width: 1100px;
-  margin: 0 auto;
-}
-</style>
