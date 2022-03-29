@@ -50,45 +50,56 @@ import { formatDate } from '@fullcalendar/vue';
 
 let eventGuid = 0
 let todayStr = new Date().toISOString().replace(/T.*$/, '') // 
-
+function createEventId() {
+  return String(eventGuid++)
+}
 const INITIAL_EVENTS = [
   {
-    title: 'Business Lunch',
+    id: createEventId(),
+    title: '木材１',
     start: '2022-03-03T13:00:00',
+    end: '2022-03-04T13:00:00',
     constraint: 'businessHours'
   },
   {
-    title: 'Meeting',
+    id: createEventId(),
+    title: '木材2',
     start: '2022-03-13T11:00:00',
     constraint: 'availableForMeeting', // defined below
     color: '#257e4a'
   },
   {
-    title: 'Conference',
+    id: createEventId(),
+    title: '木材3',
     start: '2022-03-18',
     end: '2022-03-20'
   },
   {
-    title: 'Party',
+    id: createEventId(),
+    title: '人工芝1',
     start: '2022-03-29T20:00:00'
   },
 
-  // areas where "Meeting" must be dropped
   {
+    id: createEventId(),
+    title: '人工芝2',
     groupId: 'availableForMeeting',
     start: '2022-03-11T10:00:00',
     end: '2022-03-11T16:00:00',
     rendering: 'background'
   },
   {
+    id: createEventId(),
+    title: '人工芝3',
     groupId: 'availableForMeeting',
     start: '2022-03-13T10:00:00',
     end: '2022-03-13T16:00:00',
     rendering: 'background'
   },
 
-  // red areas where no events can be dropped
   {
+    id: createEventId(),
+    title: '梱包材1',
     start: '2022-03-24',
     end: '2022-03-28',
     overlap: false,
@@ -96,6 +107,8 @@ const INITIAL_EVENTS = [
     color: '#ff9f89'
   },
   {
+    id: createEventId(),
+    title: '梱包材2',
     start: '2022-03-06',
     end: '2022-03-08',
     overlap: false,
@@ -104,9 +117,7 @@ const INITIAL_EVENTS = [
   }
 ];
 
-function createEventId() {
-  return String(eventGuid++)
-}
+
 
 export default {
   name: 'calender',
@@ -141,6 +152,11 @@ export default {
         buttonIcons: false,
         eventTimeFormat: { hour: 'numeric', minute: '2-digit' },
         defaultView: 'listMonth',
+        eventRender: function(info) {
+          info.el.onclick=function(){
+            alert(info.event.id + ":" + info.event.extendedProps.status);
+          };
+        }
       },
 
 
