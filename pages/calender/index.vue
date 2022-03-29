@@ -1,6 +1,5 @@
 <template>
 
-    
    <div class='demo-app-main'>
       <FullCalendar
         class='demo-app-calendar'
@@ -27,6 +26,8 @@ import { formatDate } from '@fullcalendar/vue';
 
 
 export default {
+  layout: "auth",
+  // auth: false,
   name: 'calender',
   components: {
     FullCalendar // make the <FullCalendar> tag available

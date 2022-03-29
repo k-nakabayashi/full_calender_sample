@@ -32,7 +32,13 @@ export default {
   plugins: [
   //  { src: '~/plugins/fullcalendar', ssr: false }
   // { src: '~/plugins/client-only.js', mode: 'client' },
+    {
+      src: '@/plugins/index',
+      mode: 'client'
+    }
   ],
+
+  
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -65,7 +71,7 @@ export default {
         endpoints: {
           //todo ログインロジックの実装
           login: { url: '/auth/sign_in', method: 'post', propertyName: false },
-          logout: false,
+          logout: true,
           user: false
         }
       }

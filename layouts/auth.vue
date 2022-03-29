@@ -1,8 +1,9 @@
 <template>
   <div class="u-clearfix pt-6 px-1 pl-3 pr-3">
-    <!-- <div class="c-Menu">
-      <Menu />
-    </div> -->
+    <div class="mb-6" v-if="$auth.loggedIn">
+     <button class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$auth.logout()">ログアウト</button>
+    </div>
+    
     <div class="c-Article max-w-screen-lg u-mx-auto">
       <Nuxt />
     </div>

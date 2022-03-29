@@ -1,6 +1,24 @@
 body {
   background: #e8e8e8;
 }
+
+
+.c-Menu {
+  position: fixed;
+  background: gray;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.c-Article {
+  position: static;
+  z-index: 0;
+  background: white;
+  padding: 16px;
+}
+
 .u-mx-auto {
   margin-left: auto;
   margin-right: auto;

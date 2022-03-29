@@ -1,5 +1,5 @@
 <template>
-   <div>
+  <section>
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$router.back()">戻る</button>
     <div>
       <ul>
@@ -7,7 +7,7 @@
         <li><p>{{ this.eventData.start }}</p></li>
       </ul>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -84,6 +84,8 @@ const INITIAL_EVENTS = [
 ];
 
 export default {
+  layout: "auth",
+  // auth: false,
   name: 'detail',
   components: {
   },
