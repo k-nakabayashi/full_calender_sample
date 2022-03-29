@@ -102,7 +102,7 @@ export default {
   },
 
   methods: {
-    logout () {
+      logout () {
       this.$store.reset()
       this.$auth.logout();
     }
