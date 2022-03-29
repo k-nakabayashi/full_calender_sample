@@ -94,7 +94,7 @@ export default {
       }
     },
     handleEventClick(clickInfo) {
-      this.$router.push({ path: `detail/${clickInfo.event.id}` })
+      this.$router.push({ path: `calender/detail/${clickInfo.event.id}` })
     },
     handleEvents(events) {
       this.currentEvents = events

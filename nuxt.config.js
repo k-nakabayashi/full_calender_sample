@@ -45,8 +45,31 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+  
+  axios: {
+    baseURL: 'http:localhost:3000'
+  },
 
+  // auth: {
+  //   redirect: {
+  //     login: '/login', 
+  //     logout: '/login',
+  //     callback: false,
+  //     home: '/'
+  //   },
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: { url: '/auth/sign_in', method: 'post', propertyName: false },
+  //         logout: false,
+  //         user: false
+  //       }
+  //     }
+  //   }  
+  // },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }

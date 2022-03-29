@@ -3,12 +3,21 @@
     <!-- <div class="c-Menu">
       <Menu />
     </div> -->
-    <div class="c-Article">
+    <div class="c-Article max-w-screen-lg u-mx-auto">
       <Nuxt />
     </div>
   </div>
 </template>
 <script>
+// import { mapGetters } from 'vuex'
+
+// import Vue from 'vue'
+// Vue.mixin({
+//     ...mapGetters({
+//       event_list: 'event_list/get',
+//     }),
+// });
+
 // import { defineComponent } from '@vue/composition-api'
 // import { useRouter } from 'vue-router'
 // export default defineComponent({
@@ -38,6 +47,8 @@
   .c-Article {
     position: static;
     z-index: 0;
+    background: white;
+    padding: 16px;
   }
 
 </style>
