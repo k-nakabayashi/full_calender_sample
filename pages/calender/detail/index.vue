@@ -90,7 +90,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   layout: "auth",
-  auth: false,
+  // auth: false,
   name: 'detail',
   components: {
   },
