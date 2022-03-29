@@ -8,6 +8,21 @@
     </div>
   </div>
 </template>
+<script>
+// import { defineComponent } from '@vue/composition-api'
+// import { useRouter } from 'vue-router'
+// export default defineComponent({
+//   setup() {
+//     const router = useRouter()
+
+//     // ブラウザバックを無効化
+//     addEventListener("popstate", () => {
+//       router.push("自分自身のパス")
+//     })
+//   },
+// })
+</script>
+
 <style lang="scss">
 
   .c-Menu {

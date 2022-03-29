@@ -127,6 +127,11 @@ export default {
   data() {
     return {
       calendarOptions: {
+        locale: 'ja',
+        timeZone: 'Asia/Tokyo',
+        buttonIcons: false,
+        eventTimeFormat: { hour: 'numeric', minute: '2-digit' },
+        defaultView: 'listMonth',
         plugins: [
           dayGridPlugin,
           timeGridPlugin,
@@ -144,17 +149,15 @@ export default {
         selectMirror: true,
         dayMaxEvents: true,
         weekends: true,
+
+
         select: this.handleDateSelect,
         eventClick: this.handleEventClick,
         eventsSet: this.handleEvents,
-        locale: 'ja',
-        timeZone: 'Asia/Tokyo',
-        buttonIcons: false,
-        eventTimeFormat: { hour: 'numeric', minute: '2-digit' },
-        defaultView: 'listMonth',
+
         eventRender: function(info) {
           info.el.onclick=function(){
-            alert(info.event.id + ":" + info.event.extendedProps.status);
+            // alert(info.event.id + ":" + info.event.extendedProps.status);
           };
         }
       },
@@ -164,11 +167,12 @@ export default {
   },
 
   methods: {
+    
     handleWeekendsToggle() {
       this.calendarOptions.weekends = !this.calendarOptions.weekends // update a property
     },
     handleDateSelect(selectInfo) {
-      let title = prompt('Please enter a new title for your event')
+      let title = prompt('新しくイベント入力')
       let calendarApi = selectInfo.view.calendar
       calendarApi.unselect() // clear date selection
       if (title) {
@@ -182,13 +186,22 @@ export default {
       }
     },
     handleEventClick(clickInfo) {
-      if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-        clickInfo.event.remove()
-      }
+      // this.$router.push({ path: `detail/${clickInfo.event.id}` })
+      let target = clickInfo.event;
+      // console.log(target);
+      // return;
+      this.$router.push({ path: '/detail' , 
+        query: { 
+          it: target.id,
+          title: target.title, 
+          startStr: target.startStr, 
+        }}
+      );
+
     },
     handleEvents(events) {
       this.currentEvents = events
-    }
+    },
   }
 }
 </script>
