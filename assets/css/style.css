@@ -31,9 +31,13 @@ li {
   margin-bottom: 16px;
 }
 
+.u-ch-mb-2 > * {
+  margin-bottom: 32px;
+}
+
 .u-clearfix::after {
-  content: " ";
-  display: block;
-  clear: both;
+  content: "" !important;
+  display: block !important;
+  clear: both !important;
 }
 /*# sourceMappingURL=style.css.map */

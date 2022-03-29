@@ -2,8 +2,10 @@
   <div class="u-clearfix pt-6 px-1 pl-3 pr-3">
 
     
-    <div class="c-Article max-w-screen-lg u-mx-auto">
-      <button  v-if="$auth.loggedIn" class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$auth.logout()">ログアウト</button>
+    <div class="c-Article max-w-screen-lg u-mx-auto u-ch-mb-1">
+      <div class="text-right">
+        <button  v-if="$auth.loggedIn" class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$auth.logout()">ログアウト</button>
+      </div>
       <Nuxt />
     </div>
   </div>
