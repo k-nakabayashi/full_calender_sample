@@ -1,6 +1,6 @@
 <template>
   <section class="u-ch-mb-2">
-    <div class="text-right" v-if="$auth.loggedIn">
+    <div class="text-right mb-5">
       <button  class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$auth.logout()">ログアウト</button>
     </div>
     <h2 class="text-3xl">入出庫詳細：{{ this.eventData.title }}</h2>
