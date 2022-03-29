@@ -1,6 +1,9 @@
 <template>
 
    <div class='demo-app-main'>
+      <div class="text-right">
+        <button  v-if="$auth.loggedIn" class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$auth.logout()">ログアウト</button>
+      </div>
       <FullCalendar
         class='demo-app-calendar'
         :options='calendarOptions'
@@ -95,13 +98,15 @@ export default {
       }
     },
     handleEventClick(clickInfo) {
-
       this.$store.dispatch('event/act', clickInfo.event._def);
       this.$router.push(`/calender/detail/`)
     },
     handleEvents(events) {
       this.currentEvents = events
     },
+    logout() {
+      this.$auth.logout();
+    }
   }
 }
 </script>

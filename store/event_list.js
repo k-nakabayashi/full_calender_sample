@@ -12,7 +12,10 @@ const INITIAL_EVENTS = [
     start: '2022-03-03T13:00:00',
     end: '2022-03-04T13:00:00',
     constraint: 'businessHours',
-    test: "sdasdas"
+
+    extendedProps: {
+      test: "dds"
+    }
   },
   {
     id: createEventId(),
