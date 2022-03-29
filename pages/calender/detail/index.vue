@@ -1,7 +1,7 @@
 <template>
   <section class="u-ch-mb-2">
-    <div class="text-right">
-      <button  v-if="$auth.loggedIn" class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$auth.logout()">ログアウト</button>
+    <div class="text-right" v-if="$auth.loggedIn">
+      <button  class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$auth.logout()">ログアウト</button>
     </div>
     <h2 class="text-3xl">入出庫詳細：{{ this.eventData.title }}</h2>
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$router.back()">戻る</button>
@@ -12,7 +12,7 @@
           <div class="a-Title">
             <p class="text-xl">仕入れ先</p>
           </div>
-          <p class="a-Txt pl-3">{{ this.eventData.extendedProps.test }}</p>
+          <p class="a-Txt pl-3">{{ this.eventData.extendedProps.supplier }}</p>
         </li>
         <li class="c-Head-Detail u-ch-mb-1">
           <div class="a-Title">
@@ -102,9 +102,12 @@ export default {
   },
 
   methods: {
-      logout () {
+    logout () {
       this.$store.reset()
       this.$auth.logout();
+    },
+    test() {
+      console.log(this.eventData)
     }
   }
 }
