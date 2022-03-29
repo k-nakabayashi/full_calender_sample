@@ -27,7 +27,7 @@ import { formatDate } from '@fullcalendar/vue';
 
 export default {
   layout: "auth",
-  // auth: false,
+  auth: false,
   name: 'calender',
   components: {
     FullCalendar // make the <FullCalendar> tag available
@@ -95,7 +95,9 @@ export default {
       }
     },
     handleEventClick(clickInfo) {
-      this.$router.push({ path: `calender/detail/${clickInfo.event.id}` })
+
+      this.$store.dispatch('event/act', clickInfo.event._def);
+      this.$router.push(`/calender/detail/`)
     },
     handleEvents(events) {
       this.currentEvents = events

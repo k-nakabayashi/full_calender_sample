@@ -2,6 +2,10 @@ body {
   background: #e8e8e8;
 }
 
+li {
+  list-style: none;
+}
+
 .c-Menu {
   position: fixed;
   background: gray;
