@@ -100,11 +100,11 @@ export default {
     handleEventClick(clickInfo) {
 
       let target = clickInfo.event;
-      console.log(target);
+
       this.$store.dispatch('event/act', {
         title: target.title,
         start: target.start,
-        extendedProps: target._def.extendedProps
+        extra: target._def.extendedProps
       });
 
       this.$router.push(`/calender/detail/`)
