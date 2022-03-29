@@ -1,28 +1,6 @@
 <template>
 
-   <div class='demo-app'>
-    <div class='demo-app-sidebar'>
-      <div class='demo-app-sidebar-section'>
-        <h2>Instructions</h2>
-        <ul>
-          <li>Select dates and you will be prompted to create a new event</li>
-          <li>Drag, drop, and resize events</li>
-          <li>Click an event to delete it</li>
-        </ul>
-      </div>
-      <div class='demo-app-sidebar-section'>
-        <label>
-          <input
-            type='checkbox'
-            :checked='calendarOptions.weekends'
-            @change='handleWeekendsToggle'
-          />
-          toggle weekends
-        </label>
-      </div>
     
-    </div>
-
    <div class='demo-app-main'>
       <FullCalendar
         class='demo-app-calendar'
@@ -32,11 +10,10 @@
           <b>{{ arg.timeText }}</b>
           <i>{{ arg.event.title }}</i>
         </template>
-      </FullCalendar>
-    </div>
-
-
+    </FullCalendar>
   </div>
+
+
 </template>
 
 <script>
@@ -53,13 +30,15 @@ let todayStr = new Date().toISOString().replace(/T.*$/, '') //
 function createEventId() {
   return String(eventGuid++)
 }
+
 const INITIAL_EVENTS = [
   {
     id: createEventId(),
     title: '木材１',
     start: '2022-03-03T13:00:00',
     end: '2022-03-04T13:00:00',
-    constraint: 'businessHours'
+    constraint: 'businessHours',
+    test: "sdasdas"
   },
   {
     id: createEventId(),
@@ -186,10 +165,9 @@ export default {
       }
     },
     handleEventClick(clickInfo) {
-      // this.$router.push({ path: `detail/${clickInfo.event.id}` })
+      this.$router.push({ path: `detail/${clickInfo.event.id}` })
       let target = clickInfo.event;
-      // console.log(target);
-      // return;
+      return;
       this.$router.push({ path: '/detail' , 
         query: { 
           it: target.id,

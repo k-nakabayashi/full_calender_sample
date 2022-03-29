@@ -5,6 +5,7 @@
       <ul>
         <li><p>タイトル：{{ this.$route.query.title }}</p></li>
         <li><p>日付：{{ this.$route.query.startStr }}</p></li>
+        <li><p>test：{{ this.$route.query.test }}</p></li>
       </ul>
     </div>
   </div>
