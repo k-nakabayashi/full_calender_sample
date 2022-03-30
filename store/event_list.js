@@ -8,9 +8,8 @@ function createEventId() {
 const INITIAL_EVENTS = [
   {
     id: createEventId(),
-    title: '木材１',
-    start: '2022-03-03T13:00:00',
-    end: '2022-03-04T13:00:00',
+    title: '材木屋A：木材１',
+    start: '2022-03-03',
     constraint: 'businessHours',
 
     extendedProps: {
@@ -29,9 +28,8 @@ const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: '木材2',
-    start: '2022-03-13T11:00:00',
-    constraint: 'availableForMeeting', // defined below
+    title: '材木屋A：木材2',
+    start: '2022-03-13',
     color: '#257e4a',
 
     extendedProps: {
@@ -50,9 +48,8 @@ const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: '木材3',
+    title: '材木屋A：木材3',
     start: '2022-03-18',
-    end: '2022-03-20',
     extendedProps: {
       supplier: "材木屋A",
       item_name: "木材１-3",
@@ -69,10 +66,10 @@ const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: '人工芝1',
-    start: '2022-03-29T20:00:00',
+    title: 'DIY店-A：人工芝1',
+    start: '2022-03-29',
     extendedProps: {
-      supplier: "DIY-A",
+      supplier: "DIY店-A",
       item_name: "人工芝１-1",
       etd: '?',
       eta: '2022-03-29T20:00:00',
@@ -88,14 +85,12 @@ const INITIAL_EVENTS = [
 
   {
     id: createEventId(),
-    title: '人工芝2',
-    groupId: 'availableForMeeting',
-    start: '2022-03-11T10:00:00',
-    end: '2022-03-11T16:00:00',
+    title: 'DIY店-A：人工芝2',
+    start: '2022-03-11',
     rendering: 'background',
     
     extendedProps: {
-      supplier: "DIY-A",
+      supplier: "DIY店-A",
       item_name: "人工芝１-2",
       etd: '2022-03-11T10:00:00',
       eta: '2022-03-11T16:00:00',
@@ -110,13 +105,11 @@ const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: '人工芝3',
-    groupId: 'availableForMeeting',
-    start: '2022-03-13T10:00:00',
-    end: '2022-03-13T10:00:00',
+    title: 'DIY店-A：人工芝3',
+    start: '2022-03-13',
     rendering: 'background',
     extendedProps: {
-      supplier: "DIY-A",
+      supplier: "DIY店-A",
       item_name: "人工芝1-3",
       etd: '2022-03-13T10:00:00',
       eta: '2022-03-13T10:00:00',
@@ -132,14 +125,12 @@ const INITIAL_EVENTS = [
 
   {
     id: createEventId(),
-    title: '梱包材1',
+    title: 'DIY店-A：梱包材1',
     start: '2022-03-24',
-    end: '2022-03-24',
-    overlap: false,
     rendering: 'background',
     color: '#ff9f89',
     extendedProps: {
-      supplier: "DIY-A",
+      supplier: "DIY店-A",
       item_name: "その他1-1",
       etd: '2022-03-24',
       eta: '2022-03-24',
@@ -154,14 +145,12 @@ const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: '梱包材2',
+    title: 'DIY店-A：梱包材2',
     start: '2022-03-06',
-    end: '2022-03-08',
-    overlap: false,
     rendering: 'background',
     color: '#ff9f89',
     extendedProps: {
-      supplier: "DIY-A",
+      supplier: "DIY店-A",
       item_name: "その他1-2",
       etd: '2022-03-06',
       eta: '2022-03-08',
