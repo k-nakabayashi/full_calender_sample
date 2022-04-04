@@ -3,11 +3,22 @@
 
     
     <div class="c-Article max-w-screen-lg u-mx-auto u-ch-mb-1">
+      <MyHeader />
+
       <Nuxt />
     </div>
   </div>
 </template>
 <script>
+
+import MyHeader from '/components/MyHeader'
+
+export default {
+  auth: true,
+  components: {
+    MyHeader,
+  },
+}
 // import { mapGetters } from 'vuex'
 
 // import Vue from 'vue'

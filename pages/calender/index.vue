@@ -1,9 +1,6 @@
 <template>
 
    <div class='demo-app-main'>
-      <div class="text-right mb-5">
-        <button  v-if="$auth.loggedIn" class="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$auth.logout()">ログアウト</button>
-      </div>
       <FullCalendar
         class='demo-app-calendar'
         :options='calendarOptions'
@@ -26,11 +23,10 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import { formatDate } from '@fullcalendar/vue';
 
-
+import { mapGetters } from 'vuex';
 
 export default {
   layout: "auth",
-  // auth: false,
   name: 'calender',
   components: {
     FullCalendar // make the <FullCalendar> tag available
@@ -38,6 +34,7 @@ export default {
 
   data(context) {
     let _event_list = context.$store.state.event_list.data;
+
     return {
       event_list: _event_list,
       calendarOptions: {
@@ -104,10 +101,10 @@ export default {
       this.$store.dispatch('event/act', {
         title: target.title,
         start: target.start,
-        extra: target._def.extendedProps
+        extendedProps: target._def.extendedProps
       });
 
-      this.$router.push(`/calender/detail/`)
+      this.$router.push(`/detail`)
     },
     handleEvents(events) {
       this.currentEvents = events
