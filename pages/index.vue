@@ -42,15 +42,15 @@ const INITIAL_EVENTS = [
     extendedProps: {
       supplier: "材木屋A",
       item_name: "木材１-1",
-      etd: '2022-03-03T13:00:00',
-      eta: '2022-03-04T13:00:00',
-      devanning_date: "?",
-      inventory_registration_date: "?",
+      etd: '2022-03-03',
+      eta: '2022-03-04',
+      devanning_date: "2022-03-04",
+      inventory_registration_date: "2022-03-04",
 
       purchase_no: "1",
       ctrl_no: "1",
       invoice_no: "1",
-      bl_no: "?",
+      bl_no: "test",
     }
   },
   {
@@ -62,15 +62,15 @@ const INITIAL_EVENTS = [
     extendedProps: {
       supplier: "材木屋A",
       item_name: "木材１-2",
-      etd: '?',
-      eta: '2022-03-13T11:00:00',
-      devanning_date: "?",
-      inventory_registration_date: "?",
+      etd: '2022-03-13',
+      eta: '2022-03-13',
+      devanning_date: "2022-03-13",
+      inventory_registration_date: "2022-03-13",
 
       purchase_no: "1",
       ctrl_no: "1",
       invoice_no: "1",
-      bl_no: "?",
+      bl_no: "test",
     }
   },
   {
@@ -82,13 +82,13 @@ const INITIAL_EVENTS = [
       item_name: "木材１-3",
       etd: '2022-03-18',
       eta: '2022-03-20',
-      devanning_date: "?",
-      inventory_registration_date: "?",
+      devanning_date: "2022-03-18",
+      inventory_registration_date: "2022-03-18",
 
       purchase_no: "1",
       ctrl_no: "1",
       invoice_no: "1",
-      bl_no: "?",
+      bl_no: "test",
     }
   },
   {
@@ -98,15 +98,15 @@ const INITIAL_EVENTS = [
     extendedProps: {
       supplier: "DIY店-A",
       item_name: "人工芝１-1",
-      etd: '?',
-      eta: '2022-03-29T20:00:00',
-      devanning_date: "?",
-      inventory_registration_date: "?",
+      etd: '2022-03-29',
+      eta: '2022-03-29',
+      devanning_date: "2022-03-29",
+      inventory_registration_date: "2022-03-29",
 
       purchase_no: "1",
       ctrl_no: "1",
       invoice_no: "1",
-      bl_no: "?",
+      bl_no: "test",
     }
   },
 
@@ -119,15 +119,15 @@ const INITIAL_EVENTS = [
     extendedProps: {
       supplier: "DIY店-A",
       item_name: "人工芝１-2",
-      etd: '2022-03-11T10:00:00',
-      eta: '2022-03-11T16:00:00',
-      devanning_date: "?",
-      inventory_registration_date: "?",
+      etd: '2022-03-11',
+      eta: '2022-03-11',
+      devanning_date: "2022-03-11",
+      inventory_registration_date: "2022-03-11",
 
       purchase_no: "1",
       ctrl_no: "2",
       invoice_no: "1",
-      bl_no: "?",
+      bl_no: "test",
     }
   },
   {
@@ -138,15 +138,15 @@ const INITIAL_EVENTS = [
     extendedProps: {
       supplier: "DIY店-A",
       item_name: "人工芝1-3",
-      etd: '2022-03-13T10:00:00',
-      eta: '2022-03-13T10:00:00',
-      devanning_date: "?",
-      inventory_registration_date: "?",
+      etd: '2022-03-13',
+      eta: '2022-03-13',
+      devanning_date: "2022-03-13",
+      inventory_registration_date: "2022-03-13",
 
       purchase_no: "1",
       ctrl_no: "2",
       invoice_no: "1",
-      bl_no: "?",
+      bl_no: "test",
     }
   },
 
@@ -161,13 +161,13 @@ const INITIAL_EVENTS = [
       item_name: "その他1-1",
       etd: '2022-03-24',
       eta: '2022-03-24',
-      devanning_date: "?",
-      inventory_registration_date: "?",
+      devanning_date: "2022-03-24",
+      inventory_registration_date: "2022-03-24",
 
       purchase_no: "1",
       ctrl_no: "2",
       invoice_no: "1",
-      bl_no: "?",
+      bl_no: "test",
     }
   },
   {
@@ -181,13 +181,13 @@ const INITIAL_EVENTS = [
       item_name: "その他1-2",
       etd: '2022-03-06',
       eta: '2022-03-08',
-      devanning_date: "?",
-      inventory_registration_date: "?",
+      devanning_date: "2022-03-06",
+      inventory_registration_date: "2022-03-06",
 
       purchase_no: "1",
       ctrl_no: "2",
       invoice_no: "1",
-      bl_no: "?",
+      bl_no: "test",
     }
   }
 ];

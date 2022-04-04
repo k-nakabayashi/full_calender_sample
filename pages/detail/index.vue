@@ -1,6 +1,6 @@
 <template>
   <section class="u-ch-mb-2">
-
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="$router.back()">戻る</button>
     <h2 class="text-3xl">入出庫詳細：{{ this.eventData.title }}</h2>
     <div class="u-ch-mb-2">
       <!-- ヘッダー情報 -->
