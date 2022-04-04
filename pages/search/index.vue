@@ -1,10 +1,10 @@
 <template>
-<div>
-  aa
-<vue-good-table
-      :columns="columns"
-      :rows="rows"/>
-</div>
+  <vue-good-table
+        :columns="columns"
+        :rows="rows"
+        :search-options="searchOptions"
+        @on-row-dblclick="goToDetail"
+      />
 </template>
 
 <script>
@@ -14,38 +14,73 @@ export default {
   components: {
   },
 
-  data () {
+  data (context) {
+    let _event_list = context.$store.state.event_list.data;
+
     return {
+      rows: _event_list,
+      searchOptions: {
+        enabled: true,
+        placeholder: 'テーブルを検索します',
+        trigger: "",
+      },
       columns: [
         {
-          label: 'Name',
-          field: 'name',
+          label: '仕入れ先',
+          field: 'extendedProps.supplier',
         },
         {
-          label: 'Age',
-          field: 'age',
-          type: 'number',
+          label: '商品名',
+          field: 'extendedProps.item_name',
         },
         {
-          label: 'Created On',
-          field: 'createdAt',
+          label: '購買申請No',
+          field: 'extendedProps.purchase_no',
+        },
+        {
+          label: 'ETD',
+          field: 'extendedProps.etd',
           type: 'date',
           dateInputFormat: 'yyyy-MM-dd',
           dateOutputFormat: 'MMM do yy',
         },
         {
-          label: 'Percent',
-          field: 'score',
-          type: 'percentage',
+          label: '管理番号',
+          field: 'extendedProps.ctrl_no',
         },
-      ],
-      rows: [
-        { id:1, name:"John", age: 20, createdAt: '2011-10-31', score: 0.03343 },
-        { id:2, name:"Jane", age: 24, createdAt: '2011-10-31', score: 0.03343 },
-        { id:3, name:"Susan", age: 16, createdAt: '2011-10-30', score: 0.03343 },
-        { id:4, name:"Chris", age: 55, createdAt: '2011-10-11', score: 0.03343 },
-        { id:5, name:"Dan", age: 40, createdAt: '2011-10-21', score: 0.03343 },
-        { id:6, name:"John", age: 20, createdAt: '2011-10-31', score: 0.03343 },
+
+        {
+          label: '入港予定日 ( ETA )',
+          field: 'extendedProps.eta',
+          type: 'date',
+          dateInputFormat: 'yyyy-MM-dd',
+          dateOutputFormat: 'MMM do yy',
+        },
+        {
+          label: 'Proforma Ioice No.',
+          field: 'extendedProps.invoice_no',
+        },
+        {
+          label: 'デバン入荷日',
+          field: 'extendedProps.devanning_date',
+          type: 'date',
+          dateInputFormat: 'yyyy-MM-dd',
+          dateOutputFormat: 'MMM do yy',
+        },
+        {
+          label: 'B/L No',
+          field: 'extendedProps.bl_no',
+          type: 'date',
+          dateInputFormat: 'yyyy-MM-dd',
+          dateOutputFormat: 'MMM do yy',
+        },
+        {
+          label: '在庫登録日',
+          field: 'extendedProps.inventory_registration_date',
+          type: 'date',
+          dateInputFormat: 'yyyy-MM-dd',
+          dateOutputFormat: 'MMM do yy',
+        },
       ],
     };
   },
@@ -55,6 +90,18 @@ export default {
     //   eventData: "event_list/get"
     // })
   },
+  methods: {
+    goToDetail(clickInfo) {
+      let target = clickInfo.row;
+      this.$store.dispatch('event/act', {
+        title: target.title,
+        start: target.start,
+        extendedProps: target.extendedProps
+      });
+
+      this.$router.push(`/detail`)
+    },
+  }
 }
 
 

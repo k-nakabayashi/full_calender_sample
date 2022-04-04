@@ -2,7 +2,7 @@
   <div class="u-clearfix pt-6 px-1 pl-3 pr-3">
 
     
-    <div class="c-Article max-w-screen-lg u-mx-auto u-ch-mb-1">
+    <div class="c-Article max-w-screen-xl u-mx-auto u-ch-mb-1">
       <MyHeader />
 
       <Nuxt />
@@ -15,6 +15,7 @@ import MyHeader from '/components/MyHeader'
 
 export default {
   auth: true,
+  name: "auth",
   components: {
     MyHeader,
   },

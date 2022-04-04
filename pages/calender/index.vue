@@ -32,7 +32,6 @@ export default {
     FullCalendar // make the <FullCalendar> tag available
   },
 
-
   data(context) {
     let _event_list = context.$store.state.event_list.data;
 
